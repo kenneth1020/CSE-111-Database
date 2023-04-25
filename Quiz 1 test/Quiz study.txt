@@ -1,0 +1,95 @@
+6.1.9
+a)
+Select studio_address
+from Studio
+Where studio_name = 'MGM studios';
+
+b) 
+Select MovieStar_birthdate
+from MovieStar
+where MovieStar_name = "Sandra Bullock's"
+
+c.)
+Select MovieStar_name
+from MovieStar
+inner join StarsIn on MovieStar_name = StarsIn_starName
+where StarsIN_movieTitle LIKE 'Love%' or StarsIn_movieYear = 1980;
+
+d.)
+Select MovieExec_name
+from MovieExec
+where MovieExec_networth >= 10,000,000;
+
+e.)
+Select MovieStar_name
+from MovieStar
+where MovieStar_gender = 'male' and MovieStar_address LIKE '%Malibu%;
+
+--6.1.3 a)
+select model, speed, hd
+from pc
+where price < 1000;
+
+--6.1.3 b)
+select model, speed as gigahertz, hd as gigabytes
+from pc
+where price < 1000;
+
+--6.1.3 c)
+select maker
+from product
+where type = 'printer';
+
+select distinct maker
+from product
+where type = 'printer';
+
+--6.1.3 d)
+select model, ram, screen
+from laptop
+where price > 1500;
+
+--6.1.3 e)
+select *
+from printer
+where color = true;
+
+--6.1.3 f)
+select model, hd
+from pc
+where speed = 3.2 and price < 2000;
+
+
+QUIZ 1 
+Problem 11
+DROP VIEW DamagedShips;
+
+CREATE VIEW DamagedShips AS
+SELECT o_ship as nameShip, b_class as damageDate
+FROM battles, Outcomes
+Where b_name = o_battle AND o_results ='damaged';
+
+SELECT DamagedShips.nameShip
+FROM DamagedShips, battles, Outcomes
+WHERE DamagedShips.nameShip = o_ship AND 
+b_name = o_battle AND 
+b_class > DamagedShips.damageDate;
+
+
+
+Database called DamagedShips [TEMP] AS
+FROM o_ship Rename as nameShip
+FROM (b_class) = b_battleDate RENAME as DamageDate
+Damaged ships
+nameShip    DamageDate
+Winconsin   1942 11 15
+Winconsin   1944 10 25
+
+1942 < 1942
+1942 < 1944
+
+1944 < 1942
+1944 < 1944
+
+Select DamageShips.nameShip
+nameShip = o_ship && b_name = o_battle and (b_class) = b_battleDate > damagedate
